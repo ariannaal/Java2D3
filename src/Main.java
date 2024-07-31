@@ -43,7 +43,7 @@ public class Main {
 
         Product prodotto8 = new Product(8, "Puzzle", "Baby", 35.99);
         prodotti.add(prodotto8);
-        
+
 
         Customer customer1 = new Customer(1L, "Arianna", 1);
         Customer customer2 = new Customer(2L, "Davide", 2);
@@ -68,6 +68,40 @@ public class Main {
                 .toList();
 
         ordiniBaby.forEach(ordine -> System.out.println(ordine));
+
+        System.out.println("ESERCIZIO 3");
+
+        Product prodotto9 = new Product(9, "Playstation", "Boys", 170.99);
+        Product prodotto10 = new Product(10, "Skateboard", "Boys", 45.99);
+        Product prodotto11 = new Product(11, "Soccer ball", "Boys", 25.99);
+
+        prodotti.add(prodotto9);
+        prodotti.add(prodotto10);
+        prodotti.add(prodotto11);
+
+        List<Product> prodottiBoys = prodotti.stream()
+                .filter(prodotto -> prodotto.getCategory().equals("Boys"))
+                .toList();
+
+        prodottiBoys.forEach(prodotto -> System.out.println("List of products what a 10% sale: " + prodotto + prodotto.sconto() + " £"));
+
+        System.out.println("ESERCIZIO 4");
+
+        LocalDate startDate = LocalDate.of(2021, 2, 1);
+        LocalDate endDate = LocalDate.of(2021, 4, 1);
+
+        List<Order> ordiniFiltrati = ordini.stream()
+                .filter(order -> order.getCustomer().getTier() == 2)
+                .filter(order -> order.getOrderDate().isAfter(startDate) && order.getOrderDate().isBefore(endDate))
+
+                .toList();
+
+        List<Product> prodottiTier2 = new ArrayList<>();
+        for (Order order : ordiniFiltrati) {
+            prodottiTier2.addAll(order.getProducts());
+        }
+
+        prodottiTier2.forEach(prodotto -> System.out.println(prodotto));
 
 
     }

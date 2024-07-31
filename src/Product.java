@@ -12,6 +12,10 @@ public class Product {
         this.price = price;
     }
 
+    public double sconto() {
+        return getPrice() * 0.10;
+    }
+
     public String getCategory() {
         return category;
     }
