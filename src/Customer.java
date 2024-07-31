@@ -22,4 +22,9 @@ public class Customer {
     public Integer getTier() {
         return tier;
     }
+
+    @Override
+    public String toString() {
+        return " " + name;
+    }
 }

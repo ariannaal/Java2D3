@@ -19,6 +19,7 @@ public class Order {
         this.customer = customer;
     }
 
+
     public long getId() {
         return id;
     }
@@ -41,5 +42,17 @@ public class Order {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    @Override
+    public String toString() {
+        return "Order " +
+
+                status + '\'' +
+                ", order's date= " + orderDate +
+                ", delivery date= " + deliveryDate +
+                products +
+                "customer= " + customer
+                ;
     }
 }
